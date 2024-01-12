@@ -153,3 +153,27 @@ void BTree::display()
         cout << endl;
     }
 }
+FILE *BTree::search(int keyValue)
+{
+    return recursiveSearch(root, keyValue);
+}
+FILE *BTree::recursiveSearch(Node *currentNode, int keyValue)
+{
+    int i = 0;
+    while (i < currentNode->noOfKeys && keyValue > currentNode->key[i].keyValue)
+    {
+        i++;
+    }
+    if (i < currentNode->noOfKeys && keyValue == currentNode->key[i].keyValue)
+    {
+        return currentNode->key[i].filePtr;
+    }
+    else if (currentNode->isLeaf)
+    {
+        return nullptr;
+    }
+    else
+    {
+        return recursiveSearch(currentNode->child[i], keyValue);
+    }
+}
