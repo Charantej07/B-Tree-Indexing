@@ -42,11 +42,12 @@ private:
     Node *splitRoot();
     void splitChild(Node *, int);
     void insertInNonFullNode(Node *, Key);
+    FILE *recursiveSearch(Node *, int);
 
 public:
     BTree();
     void insert(Key k);
-    void search(int);
+    FILE *search(int);
     void display();
 };
 #endif

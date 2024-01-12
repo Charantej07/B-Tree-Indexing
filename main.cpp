@@ -43,6 +43,7 @@ public:
         Tree->insert(newKey);
 
         fclose(filePtr);
+        cout << filePtr << endl;
         cout << "SUCCESSFULLY INSERTED" << endl;
         cout << endl;
     }
@@ -51,7 +52,15 @@ public:
         int id;
         cout << "ENTER THE ID: " << endl;
         cin >> id;
-        Tree->search(id);
+        FILE *filePtr = Tree->search(id);
+        if (filePtr == nullptr)
+        {
+            cout << "No record found" << endl;
+        }
+        else
+        {
+            cout << filePtr << endl;
+        }
     }
     void displayKeys()
     {
@@ -83,6 +92,7 @@ int main()
         case 2:
             break;
         case 3:
+            se.searchRecord();
             break;
         case 4:
             se.displayKeys();
