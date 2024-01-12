@@ -45,6 +45,6 @@ private:
 public:
     BTree();
     void insert(Key k);
-    void search(Node *, Key);
+    void search(int);
 };
 #endif
