@@ -21,24 +21,25 @@ public:
 class Node
 {
 private:
+    static int minimumDegree;
+    static int minimumNoOfKeys;
+    static int maximumNoOfKeys;
     bool isLeaf;
-    int minimumDegree;
-    int minimumNoOfKeys;
-    int maximumNoOfKeys;
+    int noOfKeys;
     vector<Key> key;
     vector<Node *> child;
     friend class BTree;
 
 public:
     Node();
-    Node(int minimumDegree);
 };
 
 class BTree
 {
 private:
+    static int minimumDegree;
     Node *root;
-    void splitRoot();
+    Node *splitRoot();
     void splitChild(Node *, int);
     void insertInNonFullNode(Node *, Key);
 
@@ -46,5 +47,6 @@ public:
     BTree();
     void insert(Key k);
     void search(int);
+    void display();
 };
 #endif
