@@ -24,11 +24,14 @@ public:
         cout << "ENTER THE ID: " << endl;
         cin >> id;
         cout << "ENTER THE NAME: " << endl;
-        cin >> name;
+        // cin >> name;
+        name = "charan";
         cout << "ENTER THE AGE: " << endl;
-        cin >> age;
+        // cin >> age;
+        age = 21;
         cout << "ENTER THE MARKS: " << endl;
-        cin >> marks;
+        // cin >> marks;
+        marks = 99;
 
         string recordName = "Records/";
         recordName += to_string(id) + ".txt";
@@ -39,8 +42,9 @@ public:
         Key newKey(id, filePtr);
         Tree->insert(newKey);
 
-        cout << "SUCCESSFULLY INSERTED" << endl;
         fclose(filePtr);
+        cout << "SUCCESSFULLY INSERTED" << endl;
+        cout << endl;
     }
     void searchRecord()
     {
@@ -49,6 +53,11 @@ public:
         cin >> id;
         Tree->search(id);
     }
+    void displayKeys()
+    {
+        cout << "Displaying the Tree" << endl;
+        Tree->display();
+    }
 };
 int main()
 {
@@ -56,6 +65,7 @@ int main()
     cout << "WELCOME" << endl;
     cout << endl;
     int option;
+    StorageEngine se;
     while (true)
     {
         cout << "SELECT ONE OF THE OPTIONS" << endl;
@@ -68,14 +78,17 @@ int main()
         switch (option)
         {
         case 1:
+            se.insertRecord();
             break;
         case 2:
             break;
         case 3:
             break;
         case 4:
+            se.displayKeys();
             break;
         case 5:
+            exit(0);
             break;
         default:
             cout << "ENTER A VALID OPTION" << endl;
