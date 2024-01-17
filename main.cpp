@@ -59,7 +59,7 @@ public:
         }
         else
         {
-            cout << filePtr << endl;
+            cout << "The indexing was pointing to the memory location: " << filePtr << endl;
         }
     }
     void displayKeys()
