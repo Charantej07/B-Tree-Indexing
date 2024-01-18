@@ -22,33 +22,29 @@ public:
         int marks;
 
         cout << "ENTER THE ID: " << endl;
-        // cin >> id;
+        cin >> id;
         cout << "ENTER THE NAME: " << endl;
-        // cin >> name;
+        cin >> name;
         name = "charan";
         cout << "ENTER THE AGE: " << endl;
-        // cin >> age;
+        cin >> age;
         age = 21;
         cout << "ENTER THE MARKS: " << endl;
-        // cin >> marks;
+        cin >> marks;
         marks = 99;
-        for (int id = 280; id <= 309; id++)
-        {
+        string recordName = "Records/";
+        recordName += to_string(id) + ".txt";
+        FILE *filePtr = fopen(recordName.c_str(), "w");
+        string data = name + " " + to_string(age) + " " + to_string(marks) + "\n";
+        fprintf(filePtr, data.c_str());
 
-            string recordName = "Records/";
-            recordName += to_string(id) + ".txt";
-            FILE *filePtr = fopen(recordName.c_str(), "w");
-            string data = name + " " + to_string(age) + " " + to_string(marks) + "\n";
-            fprintf(filePtr, data.c_str());
+        Key newKey(id, filePtr);
+        Tree->insert(newKey);
 
-            Key newKey(id, filePtr);
-            Tree->insert(newKey);
-
-            fclose(filePtr);
-            cout << filePtr << endl;
-            cout << "SUCCESSFULLY INSERTED" << endl;
-            cout << endl;
-        }
+        fclose(filePtr);
+        cout << filePtr << endl;
+        cout << "SUCCESSFULLY INSERTED" << endl;
+        cout << endl;
     }
     void searchRecord()
     {

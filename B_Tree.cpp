@@ -51,7 +51,7 @@ void Node::deletion(int k)
     {
         if (isLeaf)
         {
-            cout << "The key " << k << " is does not exist in the tree\noOfKeys";
+            cout << "The key " << k << " is does not exist in the tree";
             return;
         }
         bool flag = ((idx == noOfKeys) ? true : false);
