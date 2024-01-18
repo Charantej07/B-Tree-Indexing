@@ -32,6 +32,16 @@ private:
 
 public:
     Node();
+    int findKey(int);
+    void deletion(int);
+    void removeFromLeaf(int);
+    void removeFromNonLeaf(int);
+    void fill(int);
+    Key getPredecessor(int);
+    Key getSuccessor(int);
+    void merge(int);
+    void borrowFromPrev(int);
+    void borrowFromNext(int);
 };
 
 class BTree
@@ -49,5 +59,6 @@ public:
     void insert(Key k);
     FILE *search(int);
     void display();
+    void deletion(int);
 };
 #endif

@@ -22,7 +22,7 @@ public:
         int marks;
 
         cout << "ENTER THE ID: " << endl;
-        cin >> id;
+        // cin >> id;
         cout << "ENTER THE NAME: " << endl;
         // cin >> name;
         name = "charan";
@@ -32,20 +32,23 @@ public:
         cout << "ENTER THE MARKS: " << endl;
         // cin >> marks;
         marks = 99;
+        for (int id = 280; id <= 309; id++)
+        {
 
-        string recordName = "Records/";
-        recordName += to_string(id) + ".txt";
-        FILE *filePtr = fopen(recordName.c_str(), "w");
-        string data = name + " " + to_string(age) + " " + to_string(marks) + "\n";
-        fprintf(filePtr, data.c_str());
+            string recordName = "Records/";
+            recordName += to_string(id) + ".txt";
+            FILE *filePtr = fopen(recordName.c_str(), "w");
+            string data = name + " " + to_string(age) + " " + to_string(marks) + "\n";
+            fprintf(filePtr, data.c_str());
 
-        Key newKey(id, filePtr);
-        Tree->insert(newKey);
+            Key newKey(id, filePtr);
+            Tree->insert(newKey);
 
-        fclose(filePtr);
-        cout << filePtr << endl;
-        cout << "SUCCESSFULLY INSERTED" << endl;
-        cout << endl;
+            fclose(filePtr);
+            cout << filePtr << endl;
+            cout << "SUCCESSFULLY INSERTED" << endl;
+            cout << endl;
+        }
     }
     void searchRecord()
     {
@@ -66,6 +69,14 @@ public:
     {
         cout << "Displaying the Tree" << endl;
         Tree->display();
+    }
+    void deleteRecord()
+    {
+        int key;
+        cout << "Enter the key to delete: ";
+        cin >> key;
+        Tree->deletion(key);
+        cout << "SUCCESSFULLY DELETED" << endl;
     }
 };
 int main()
@@ -90,6 +101,7 @@ int main()
             se.insertRecord();
             break;
         case 2:
+            se.deleteRecord();
             break;
         case 3:
             se.searchRecord();
