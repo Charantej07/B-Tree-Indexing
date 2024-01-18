@@ -26,7 +26,7 @@ Node::Node()
     isLeaf = false;
     noOfKeys = 0;
     key.assign(maximumNoOfKeys, Key(0, nullptr));
-    child.assign(maximumNoOfKeys, nullptr);
+    child.assign(maximumNoOfKeys + 1, nullptr);
 }
 
 int BTree::minimumDegree = 3;
